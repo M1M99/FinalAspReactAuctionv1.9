@@ -113,7 +113,7 @@ function ResponsiveAutoExample() {
                 {cars.map((res) => (
                     <React.Fragment key={res.id}>
                         <Col sm={4}>
-                            <img src={res.imageUrl} alt="Car" className="img-fluid rounded-sm" />
+                            <img src={res.imageUrl} alt="Car" className="img-fluid rounded-sm pt-1" />
                         </Col>
                         <Col sm={4}>
                             <h5>{res.year}</h5>
