@@ -6,6 +6,7 @@ import axios from '../../../node_modules/axios/index';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { faHouse } from '@fortawesome/free-solid-svg-icons';
+import Pattern from '../Components/Example/background';
 function Account() {
     const [isActive, setIsActive] = useState(false);
     const [css, changeCSS] = useState(false);
@@ -114,67 +115,69 @@ function Account() {
             setLoading(false)
         }
     }
-
     return (
-        <div className={`${styles.container} ${isActive ? styles.active : ''}`}>
-            {isActive ? (
-                <div className={`${styles['form-container']} ${styles['sign-up']}`}>
-                    <form onSubmit={Register}>
-                        <h1>Create Account</h1>
-                        <div className={styles['social-icons']}>
-                            <a href="#" className={styles.icon}><FontAwesomeIcon icon={faGoogle} /></a>
-                            <a href="#" className={styles.icon}><FontAwesomeIcon icon={faFacebook} /></a>
-                            <a href="#" className={styles.icon}><FontAwesomeIcon icon={faGithub} /></a>
-                            <a href="#" className={styles.icon}><FontAwesomeIcon icon={faLinkedin} /></a>
-                            <a href="#" className={styles.icon} onClick={handleHomeClick}><FontAwesomeIcon icon={faHouse} /></a>
-                        </div>
-                        <span>or use your email for registration</span>
-                        <input type="text" placeholder="Name" value={name} onChange={(n) => setName(n.target.value)} />
-                        <input type="text" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} /> {/*//change email */}
-                        <input type="password" placeholder="Password" value={password} onChange={(p) => setPassword(p.target.value)} />
-                        <button type="submit">Sign Up</button>
-                    </form>
-                </div>
-            ) : (
-                <div className={`${styles['form-container']} ${styles['sign-in']}`}>
-                    <form onSubmit={handleSubmitSignIn}>
-                        <h1>Sign In</h1>
-                        <div className={styles['social-icons']}>
-                            <a href="#" className={styles.icon}><FontAwesomeIcon icon={faGoogle} /></a>
-                            <a href="#" className={styles.icon}><FontAwesomeIcon icon={faFacebook} /></a>
-                            <a href="#" className={styles.icon}><FontAwesomeIcon icon={faGithub} /></a>
-                            <a href="#" className={styles.icon}><FontAwesomeIcon icon={faLinkedin} /></a>
-                            <a href="#" className={styles.icon} onClick={handleHomeClick}><FontAwesomeIcon icon={faHouse} /></a>
-                        </div>
-                        <span>or use your email password</span>
-                        <input type="text" placeholder="Name" value={name} onChange={(n) => setName(n.target.value)} />
-                        <input type="text" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
-                        <input type="password" placeholder="Password" value={password} onChange={(p) => setPassword(p.target.value)} />
-                        <a href="#">Forget Your Password?</a>
-                        <button type="submit">Sign In</button>
-                    </form>
-                </div>
-            )}
-
-            <div className={styles['toggle-container']}>
-                <div className={styles.toggle}>
-                    <div className={`${styles['toggle-panel']} ${styles['toggle-left']}`}>
-                        <h1>Welcome Back!</h1>
-                        <p>Enter your personal details to use all of site features</p>
-                        <button onClick={handleLoginClick} className={styles.hidden} id="login">
-                            Sign In
-                        </button>
+        <>
+            <Pattern />
+            <div className={`${styles.container} ${isActive ? styles.active : ''}`}>
+                {isActive ? (
+                    <div className={`${styles['form-container']} ${styles['sign-up']}`}>
+                        <form onSubmit={Register}>
+                            <h1>Create Account</h1>
+                            <div className={styles['social-icons']}>
+                                <a href="#" className={styles.icon}><FontAwesomeIcon icon={faGoogle} /></a>
+                                <a href="#" className={styles.icon}><FontAwesomeIcon icon={faFacebook} /></a>
+                                <a href="#" className={styles.icon}><FontAwesomeIcon icon={faGithub} /></a>
+                                <a href="#" className={styles.icon}><FontAwesomeIcon icon={faLinkedin} /></a>
+                                <a href="#" className={styles.icon} onClick={handleHomeClick}><FontAwesomeIcon icon={faHouse} /></a>
+                            </div>
+                            <span>or use your email for registration</span>
+                            <input type="text" placeholder="Name" value={name} onChange={(n) => setName(n.target.value)} />
+                            <input type="text" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} /> {/*//change email */}
+                            <input type="password" placeholder="Password" value={password} onChange={(p) => setPassword(p.target.value)} />
+                            <button type="submit">Sign Up</button>
+                        </form>
                     </div>
-                    <div className={`${styles['toggle-panel']} ${styles['toggle-right']}`}>
-                        <h1>Hello, Friend!</h1>
-                        <p>Register with your personal details to use all of site features</p>
-                        <button onClick={handleRegisterClick} className={styles.hidden} id="register">
-                            Sign Up
-                        </button>
+                ) : (
+                    <div className={`${styles['form-container']} ${styles['sign-in']}`}>
+                        <form onSubmit={handleSubmitSignIn}>
+                            <h1>Sign In</h1>
+                            <div className={styles['social-icons']}>
+                                <a href="#" className={styles.icon}><FontAwesomeIcon icon={faGoogle} /></a>
+                                <a href="#" className={styles.icon}><FontAwesomeIcon icon={faFacebook} /></a>
+                                <a href="#" className={styles.icon}><FontAwesomeIcon icon={faGithub} /></a>
+                                <a href="#" className={styles.icon}><FontAwesomeIcon icon={faLinkedin} /></a>
+                                <a href="#" className={styles.icon} onClick={handleHomeClick}><FontAwesomeIcon icon={faHouse} /></a>
+                            </div>
+                            <span>or use your email password</span>
+                            <input type="text" placeholder="Name" value={name} onChange={(n) => setName(n.target.value)} />
+                            <input type="text" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                            <input type="password" placeholder="Password" value={password} onChange={(p) => setPassword(p.target.value)} />
+                            <a href="#">Forget Your Password?</a>
+                            <button type="submit">Sign In</button>
+                        </form>
+                    </div>
+                )}
+
+                <div className={styles['toggle-container']}>
+                    <div className={styles.toggle}>
+                        <div className={`${styles['toggle-panel']} ${styles['toggle-left']}`}>
+                            <h1>Welcome Back!</h1>
+                            <p>Enter your personal details to use all of site features</p>
+                            <button onClick={handleLoginClick} className={styles.hidden} id="login">
+                                Sign In
+                            </button>
+                        </div>
+                        <div className={`${styles['toggle-panel']} ${styles['toggle-right']}`}>
+                            <h1>Hello, Friend!</h1>
+                            <p>Register with your personal details to use all of site features</p>
+                            <button onClick={handleRegisterClick} className={styles.hidden} id="register">
+                                Sign Up
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </>
     );
 }
 

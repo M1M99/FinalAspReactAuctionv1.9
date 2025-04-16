@@ -16,8 +16,12 @@ import Auction from "./Components/Auction/AuctionHandle"
 import App111 from "./Components/Example/NewJsx"
 import ExitAnimation from "./Components/Example/Animation"
 import Fooo2 from "./Components/Example/Section"
+import ChatGPTComponent from "./Components/Example/ChatGPTComponent"
+import ChatBot from "./Components/Example/AI"
+import ChatBotWithAI from "./Components/Example/ChatGPTComponent"
+import Radio from "./Components/Example/dropdown"
+import Pattern from "./Components/Example/background"
 /*import Dark from "./Components/Example/hahsdas"*/
-//import FileUpload from "./Components/Example/UploadFile"
 
 
 function App() {
@@ -32,10 +36,11 @@ function App() {
             <Example />
             {/*<App1 />*/}
             {/*<ThreeDCardDemo/>*/}
-            {/*<FileUpload/>*/}
             <CarouselForDetails />
             <Footer />
             <ExitAnimation />
+            <ChatBotWithAI />
+            <Radio />
         </div>
     )
 }

@@ -6,6 +6,7 @@ import { jwtDecode } from "jwt-decode";
 import { useNavigate } from "react-router-dom";
 import axios from '../../../../node_modules/axios/index';
 import React, { Fragment } from 'react';
+import Loading from '../Fetch/Loading';
 
 
 function ResponsiveAutoExample() {
@@ -103,12 +104,10 @@ function ResponsiveAutoExample() {
             })
     };
 
-    const editHandle = () => {
-        setEditBtn(!editBtn);
-    };
 
     return (
         <Container className="bg-[#3B3C36] p-3 rounded-3 mt-3" id="adminSideList">
+            {cars.length === 0 && <Loading />} 
             <Row>
                 {console.log(cars)}
                 {cars.map((res) => (

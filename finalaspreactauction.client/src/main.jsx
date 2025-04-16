@@ -46,7 +46,7 @@ createRoot(document.getElementById('root')).render(
                 <Route path="/UpdateMakeForm" element={<UpdateMakeForm />} key={location.key} />
                 <Route path="/UpdateModel" element={<UpdateModelForm />} key={location.key} />
                 <Route path="/admin" element={
-                    <div> <AdminLayout /> <ResponsiveAutoExample/></div>
+                    <div><AdminLayout /><ResponsiveAutoExample/></div>
                 }/>
                 <Route path={`/getCarByBrand/:id`} element={<GetCarByMake />} key={location.key}></Route>
                 <Route path="*" element={<NotFound />} key={location.key}></Route>

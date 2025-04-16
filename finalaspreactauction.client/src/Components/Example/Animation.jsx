@@ -32,8 +32,6 @@ export default function ExitAnimation() {
     );
 }
 
-
-
 const container = {
     display: "flex",
     flexDirection: "column",
@@ -62,4 +60,5 @@ const button = {
     color: "#0f1115",
     cursor: "pointer",
     fontSize: "16px",
+    marginBottom:"10px"
 };

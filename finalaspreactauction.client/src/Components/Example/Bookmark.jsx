@@ -1,26 +1,19 @@
-import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBookmark as fasBookmark, faBookmark as farBookmark } from '@fortawesome/free-solid-svg-icons';
 
 const BookmarkToggle = () => {
-    const [isBookmarked, setIsBookmarked] = useState(false);
 
-    const toggleBookmark = () => {
-        setIsBookmarked(!isBookmarked);
-    };
 
     return (
-        <div>
-            <button onClick={toggleBookmark} style={{ background: 'none', border: 'none', cursor: 'pointer' }}>
-                <FontAwesomeIcon
-                    icon={isBookmarked ? fasBookmark : farBookmark} 
-                    style={{ fontSize: '24px', color: isBookmarked ? '#ff6347' : '#333' }} 
-                />
-            </button>
-            <p style={{ fontSize: '16px', color: isBookmarked ? '#ff6347' : '#333' }}>
-                {/*{isBookmarked ? ''}*/}
-            </p>
-        </div>
+            <label className="ui-bookmark">
+                <input type="checkbox"/>
+                    <div className="bookmark">
+                        <svg viewBox="0 0 32 32">
+                            <g>
+                                <path d="M27 4v27a1 1 0 0 1-1.625.781L16 24.281l-9.375 7.5A1 1 0 0 1 5 31V4a4 4 0 0 1 4-4h14a4 4 0 0 1 4 4z"></path>
+                            </g>
+                        </svg>
+                    </div>
+            </label>
     );
 };
 

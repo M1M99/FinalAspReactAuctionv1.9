@@ -174,7 +174,7 @@ const CarList = () => {
                                             {userrole !== "Admin" && (
                                                 <tr>
                                                     <td colSpan="3">
-                                                        <BookmarkToggle/>
+                                                        <BookmarkToggle />
                                                     </td>
                                                 </tr>)}
                                             {userrole === "Admin" && editBtn && (
@@ -206,15 +206,14 @@ const CarList = () => {
                                 </table>
                             </div>
                         </div>
-    ))
+                    ))
                 )
             )}
-
-{
-                carIdToUpdate && selectedCarDetails && editBtn && openEditInput&& (
-        <UpdateCarForm carId={carIdToUpdate} carDetails={selectedCarDetails} makes={makes} models={models} />
-    )
-}
+            {
+                carIdToUpdate && selectedCarDetails && editBtn && openEditInput && (
+                    <UpdateCarForm carId={carIdToUpdate} carDetails={selectedCarDetails} makes={makes} models={models} />
+                )
+            }
         </Container >
     );
 };

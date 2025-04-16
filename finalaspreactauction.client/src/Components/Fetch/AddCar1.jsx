@@ -25,7 +25,7 @@ const AddCar1 = () => {
         video: null,
         photo: null,
     });
-    const [flag, setFlag] = useState(false);
+    //const [flag, setFlag] = useState(false);
     const [makes, setMakes] = useState([]);
     const [models, setModels] = useState([]);
 
