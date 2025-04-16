@@ -24,7 +24,7 @@ const ChatBotWithAI = () => {
                 },
                 {
                     headers: {
-                        Authorization: `Bearer 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`, // OpenRouter API key
+                        Authorization: `Bearer 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`, // OpenRouter API key
                         'Content-Type': 'application/json',
                     },
                 }
@@ -104,9 +104,8 @@ const ChatBotWithAI = () => {
                 <span>Analyse Data</span>
                 <span>More</span>
             </div>
-
             <div style={{ marginTop: 20 }}>
-                {loading ? 'Waiting For An Answer...' : <p><h3>Answer : </h3>{response}</p>}
+                {loading ? 'Waiting For An Answer...' : response && < p > <h3>Answer : </h3>{response}</p>}
             </div>
         </div>
     );

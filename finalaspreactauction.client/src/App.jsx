@@ -19,8 +19,8 @@ import Fooo2 from "./Components/Example/Section"
 import ChatGPTComponent from "./Components/Example/ChatGPTComponent"
 import ChatBot from "./Components/Example/AI"
 import ChatBotWithAI from "./Components/Example/ChatGPTComponent"
-import Radio from "./Components/Example/dropdown"
 import Pattern from "./Components/Example/background"
+import Card from "./Components/Example/Testing"
 /*import Dark from "./Components/Example/hahsdas"*/
 
 
@@ -30,7 +30,6 @@ function App() {
             {/*<App111/>*/}
             <Header />
             <CarList />
-            <ModelList />
             <Auction/>
             <Emp />
             <Example />
@@ -39,8 +38,9 @@ function App() {
             <CarouselForDetails />
             <Footer />
             <ExitAnimation />
+            <ModelList />
             <ChatBotWithAI />
-            <Radio />
+            {/*<Card />*/}
         </div>
     )
 }
