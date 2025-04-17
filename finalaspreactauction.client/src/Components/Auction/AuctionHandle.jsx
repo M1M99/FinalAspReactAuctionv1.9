@@ -8,36 +8,36 @@ const Auction = () => {
     const [bidAmount, setBidAmount] = useState('');
     const [message, setMessage] = useState('');
 
+    const startConnection = async (conn) => {
+        try {
+            await conn.start();
+            console.log('SignalR connected');
+            setMessage('Connected to auction');
+        } catch (err) {
+            console.error('SignalR connection error, retrying...', err);
+            setMessage('Connection failed. Retrying...');
+            setTimeout(() => startConnection(conn), 5000); 
+        }
+    };
     useEffect(() => {
-        const token = localStorage.getItem('authToken'); 
-
+        const token = localStorage.getItem('authToken');
         if (!token) {
             setMessage('Please Sign In First');
             return;
         }
 
-        const connection = new HubConnectionBuilder()
+        const conn = new HubConnectionBuilder()
             .withUrl('https://localhost:7038/auctionHub', {
-                headers: {
-                    Authorization: `Bearer ${token}`,
-                },
+                accessTokenFactory: () => token, 
             })
+            .withAutomaticReconnect() 
             .build();
 
-        setConnection(connection);
-
-        connection
-            .start()
-            .then(() => console.log('SignalR connected successfully'))
-            .catch((err) => {
-                console.error('SignalR Error:', err);
-                setMessage('SignalR did not connected');
-            });
+        setConnection(conn);
+        startConnection(conn);
 
         return () => {
-            if (connection) {
-                connection.stop();
-            }
+            conn.stop();
         };
     }, []);
 
