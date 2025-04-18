@@ -1,4 +1,5 @@
 import Container from 'react-bootstrap/Container';
+import { Outlet } from 'react-router-dom';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
@@ -10,31 +11,34 @@ function AdminLayout() {
         <div>
             <Navbar expand="lg" style={{ backgroundColor: "#536878" }}>
                 <Container>
-                    <Navbar.Brand href="/admin">Admin-Auction</Navbar.Brand>
+                    <Navbar.Brand as={Link} to="/admin">Admin-Auction</Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="me-auto">
-                            <Nav.Link href="/">Home</Nav.Link>
-                            <Nav.Link href="/login">Account</Nav.Link>
-                            <Nav.Link href="/adminside">Edit Page</Nav.Link>
+                            <Nav.Link as={Link} to="/">Home</Nav.Link>
+                            <Nav.Link as={Link} to="/login">Account</Nav.Link>
+                            <Nav.Link as={Link} to="/admin/adminside">Edit Page</Nav.Link>
                             <NavDropdown title="Edit" id="basic-nav-dropdown">
-                                <NavDropdown.Item href="/addmakeormodel">Add New Make</NavDropdown.Item>
-                                <NavDropdown.Item href="/delete">
+                                <NavDropdown.Item as={Link} to="/admin/addmakeormodel">Add New Make</NavDropdown.Item>
+                                <NavDropdown.Item as={Link} to="/admin/delete">
                                     Delete/Update
                                 </NavDropdown.Item>
-                                <NavDropdown.Item href="/addNew">Add New Vehicle</NavDropdown.Item>
+                                <NavDropdown.Item as={Link} to="/admin/addNew">Add New Vehicle</NavDropdown.Item>
                                 <NavDropdown.Divider />
                                 {/*<NavDropdown.Item href="/UpdateMakeForm">*/}
                                 {/*    UpdateMake*/}
                                 {/*</NavDropdown.Item>*/}
-                                <NavDropdown.Item as={Link} to="/UpdateMakeForm">UpdateMake</NavDropdown.Item>
-                                <NavDropdown.Item as={Link} to="/UpdateModel">UpdateModel</NavDropdown.Item>
+                                <NavDropdown.Item as={Link} to="/admin/UpdateMakeForm">UpdateMake</NavDropdown.Item>
+                                <NavDropdown.Item as={Link} to="/admin/UpdateModel">UpdateModel</NavDropdown.Item>
                                 <NavDropdown.Divider />
                             </NavDropdown>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
+            <div className="p-4">
+                <Outlet />
+            </div>
         </div>
     );
 }
