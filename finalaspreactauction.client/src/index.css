@@ -23,9 +23,15 @@
     background: linear-gradient(45deg, #2E3192, #1BFFFF);
 }
 
+#jjfc {
+    width:320px
+}
+
+#formMake {
+    width: 100%
+}
 
 
-/* From Uiverse.io by Galahhad */
 .ui-bookmark {
     --icon-size: 24px;
     --icon-secondary-color: rgb(77, 77, 77);

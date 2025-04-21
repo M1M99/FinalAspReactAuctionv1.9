@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import { jwtDecode } from "jwt-decode";
 import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,useLocation } from "react-router-dom";
 import Header from "../Page/Header";
 import Fade from "react-bootstrap/esm/Fade";
 import AddModel from "./AddModel";
@@ -144,8 +144,22 @@ function AdminSide() {
     const [userRole, setUserRole] = useState('');
     const navigate = useNavigate();
     const [flag, setFlag] = useState(false);
+    const location = useLocation();
+    const formRef = useRef(null);
+    const [formId, setFormId] = useState("formMake");
 
-
+    useEffect(() => {
+        const checkWidth = () => {
+            if (formRef.current) {
+                const width = formRef.current.offsetWidth;
+                console.log("Form geniþliði:", width);
+                setFormId(width > 300 ? "jjfc" : "formMake");
+            }
+        };
+        if (flag) checkWidth();
+        window.addEventListener("resize", checkWidth);
+        return () => window.removeEventListener("resize", checkWidth);
+    }, [flag]);
     const handleSubmit = async (event) => {
         event.preventDefault();
         setLoading(true);
@@ -233,11 +247,13 @@ function AdminSide() {
         margin: "10px"
     };
 
+    const backgroundColor = location.pathname === "/admin/adminside" ? "" : "#008080"
+
     return (
         <div style={{ height: "1000px", overflow: "hidden" }}>
             {userRole === "Admin" &&
                 (
-                    <div className="pb-3" style={{ backgroundColor: "#008080", height: "1000px", overflow: "hidden" }}>
+                <div className="pb-3" style={{ backgroundColor: backgroundColor , height: "1000px", overflow: "hidden" }}>
                         {/*<h2 id="adminSideName">Welcome {Adminname}</h2>*/}
                         {/*<AddModel />*/}
                         <button style={button} onClick={() => setFlag(!flag)}
@@ -249,7 +265,7 @@ function AdminSide() {
 
                         <Fade in={flag}>
                             <StyledWrapper>
-                                <div className="form-container">
+                            <div ref={formRef} id={formId} className="form-container">
                                     <p className="title">Add New Make</p>
                                     <form className="form" onSubmit={handleSubmit}>
                                         <div className="input-group">
