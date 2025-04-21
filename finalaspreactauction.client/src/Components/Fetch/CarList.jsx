@@ -223,7 +223,13 @@ const Container = styled.div`
     padding: 0 10px;
     padding-bottom: 10px;
     border-radius: 3px;
-    background-color: #8ecae6;
+    background-color: #6a9eb5;
+    background:linear-gradient(to bottom right, #8ecae6, #219ebc); //ffb703
+        box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.25);
+      &:hover {
+    background:linear-gradient(to bottom right, #8ecae6, #219ebc); //ffb703
+        box-shadow: 0px 6px 12px rgba(0, 0, 0.4, 0.4); 
+    }
 `;
 
 export default CarList;

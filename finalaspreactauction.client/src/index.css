@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
 @import "tailwindcss";
+
 :root {
     font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
     line-height: 1.5;
@@ -12,13 +13,18 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
+
 .react-slideshow-container .nav {
     padding: 0px;
     margin: 0;
 }
+
 #adminSideList {
     background: linear-gradient(45deg, #2E3192, #1BFFFF);
 }
+
+
+
 /* From Uiverse.io by Galahhad */
 .ui-bookmark {
     --icon-size: 24px;
@@ -203,27 +209,32 @@
         opacity: 0;
     }
 }
+
 #title {
     color: #a9d6e5;
     text-decoration: none;
     /*font-size: 22px;*/
     font-weight: 600;
 }
+
 #adminSideName {
-    font-size:2vw;
+    font-size: 2vw;
     animation: admin 3s ease-in-out alternate;
     position: relative;
     display: flex;
-    flex-wrap:wrap;
-    align-content:center;
-    margin : 0 10%;
+    flex-wrap: wrap;
+    align-content: center;
+    margin: 0 10%;
 }
-.me-auto .nav-link{
+
+.me-auto .nav-link {
 }
+
     .me-auto .nav-link:hover {
         font-weight: 450;
         color: #00356B;
     }
+
 @keyframes admin {
     0% {
         left: 0px;
@@ -306,17 +317,22 @@ button:focus,
 button:focus-visible {
     outline: 4px auto -webkit-focus-ring-color;
 }
+
 #container {
     /*background-image: url("assets/pexels-pixabay-531880.jpg");*/
     /*background-image: url("assets/pexels-nerdnonsense-23522813.jpg");*/
 }
+/*#container :hover {
+        background-color: #f0f0f0;*/ /* Fareyle üzerine gelince renk deðiþsin */
+/*box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
+    }*/
 
 #footer {
     background-color: #8EC5FC;
     background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
-    border-radius:10px;
-    margin:10px;
-    padding:16px
+    border-radius: 10px;
+    margin: 10px;
+    padding: 16px
 }
 
 button:hover {
@@ -342,7 +358,7 @@ button:hover {
 
 td {
     padding-left: 6vw;
-    font-weight:500;
+    font-weight: 500;
 }
 
 .inputSeach {
@@ -462,33 +478,36 @@ td {
 
 @media (max-width: 1150px) {
     #delete {
-        position:static;
+        position: static;
         display: inline-block;
         /*right:35px;*/
     }
 }
+
 @media (max-width: 580px) {
     #login {
-        height:fit-content
+        height: fit-content
     }
 }
 
-#edit{
-    margin:0;
-    padding:0;
+#edit {
+    margin: 0;
+    padding: 0;
 }
-#delete{
-    margin:0;
-    padding:0;
+
+#delete {
+    margin: 0;
+    padding: 0;
 }
 
 @media (max-width: 1150px) {
     #edit {
-        position:static;
+        position: static;
         /*right:10px;*/
         display: inline-block;
     }
 }
+
 @media (max-width: 600px) {
     #edit {
         display: flex;
@@ -510,66 +529,77 @@ td {
 }
 
 @media (max-width: 860px) {
-    #imgCar{
+    #imgCar {
         margin: 0 auto;
     }
+
     #listofcar {
         display: block;
     }
-    th{
-        padding-left:3vw;
+
+    th {
+        padding-left: 3vw;
     }
-    #detailscars{
-        display:flex;
-        justify-content:center;
-        padding:1vw;
+
+    #detailscars {
+        display: flex;
+        justify-content: center;
+        padding: 1vw;
     }
 }
+
 @media (max-width: 600px) {
-    #imgCar{
+    #imgCar {
         margin: 0 auto;
     }
+
     #listofcar {
         display: block;
     }
-    th{
-        padding-left:3vw;
+
+    th {
+        padding-left: 3vw;
     }
-    #detailscars{
-        display:flex;
-        justify-content:space-between;
-                animation:change 0.7s alternate-reverse;
-        padding:1vw;
+
+    #detailscars {
+        display: flex;
+        justify-content: space-between;
+        animation: change 0.7s alternate-reverse;
+        padding: 1vw;
     }
 }
 
-#edit,#delete{
-    margin-left:5vw;
+#edit, #delete {
+    margin-left: 5vw;
 }
 
-td{
-    padding-left:8vw;
-    transition:padding-left 0.5s ease;
+td {
+    padding-left: 8vw;
+    transition: padding-left 0.5s ease;
 }
-th{
+
+th {
 }
+
 @media (min-width: 860px) {
     td {
         padding-left: 10vw;
         margin: 0;
-        animation:change 0.7s alternate-reverse
+        animation: change 0.7s alternate-reverse
     }
-    #imgCar{
-        margin-right:5vw
+
+    #imgCar {
+        margin-right: 5vw
     }
 }
 
-@keyframes change{
-    0%{
-        padding-left:10vw;
+@keyframes change {
+    0% {
+        padding-left: 10vw;
     }
-    100%{
-        padding-left:1vw;
+
+    100% {
+        padding-left: 1vw;
     }
 }
 
@@ -606,7 +636,7 @@ th{
 
     .bookmark-icon:hover {
         transform: scale(1.2);*/ /* Slight zoom effect on hover */
-    /*}
+/*}
 
     .bookmark-icon.bookmarked {
         animation: colorChange 0.3s forwards;
@@ -625,7 +655,7 @@ th{
     
     100% {
         color: #ff6347;*/ /* Tomato color for when it's bookmarked */
-    /*}
+/*}
 }*/
 
 /* Optional: You can change the color based on bookmark state directly as well */
@@ -647,6 +677,7 @@ th{
 }
 
     .container_chat_bot .container-chat-options {
+        margin: 0 20px 0 20px;
         position: relative;
         display: flex;
         background: linear-gradient(to bottom right, #7e7e7e, #363636, #363636, #363636, #363636);
@@ -688,9 +719,9 @@ th{
                     height: 50px;
                     color: #ffffff;
                     font-family: sans-serif;
-                    font-size: 14px; /* Adjusted font size for better readability */
+                    font-size: 14px;
                     font-weight: 400;
-                    padding: 10px;
+                    padding: 13px;
                     resize: none;
                     outline: none;
                     transition: all 0.3s ease;
@@ -876,4 +907,8 @@ th{
     background: linear-gradient(120deg, rgb(255, 174, 145) 30%, coral 88%, bisque 40%, rgb(255, 185, 160) 78%);
     color: white;
     transform: rotateY(180deg);
+}
+
+.totalContainer {
+    background-color: #f7f7f7;
 }

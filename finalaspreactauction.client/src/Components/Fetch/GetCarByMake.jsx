@@ -4,6 +4,7 @@ import axios from "axios";
 import Header from "./../Page/Header";
 import GetPP from "./GetPricePerformanceCars";
 import Footer from "../Page/Footer";
+import Footer1 from "../../Components/Example/Example11";
 
 const GetCarByMake = () => {
     const { id } = useParams();
@@ -11,6 +12,7 @@ const GetCarByMake = () => {
     const [brandName, setBrandName] = useState("");
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+
     useEffect(() => {
         if (!id) {
             setError("No makeId provided");
@@ -25,10 +27,9 @@ const GetCarByMake = () => {
 
                 const carsResponse = await axios.get(`https://localhost:7038/api/Car/GetByBrandId?id=${id}`);
                 setCars(carsResponse.data);
-
             } catch (err) {
                 setError("Failed to fetch data");
-                console.log(err);
+                console.error("Error fetching data:", err);
             } finally {
                 setLoading(false);
             }
@@ -37,42 +38,83 @@ const GetCarByMake = () => {
         fetchData();
     }, [id]);
 
+    if (loading) {
+        return (
+            <div className="min-h-screen flex items-center justify-center bg-gray-50">
+                <div className="text-center">
+                    <div className="w-16 h-16 border-4 border-indigo-600 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+                    <p className="text-gray-600">Loading cars...</p>
+                </div>
+            </div>
+        );
+    }
 
-
-
-
-    if (loading) return <div>Loading...</div>;
-    if (error) return <div>{error}</div>;
+    if (error) {
+        return (
+            <div className="min-h-screen flex items-center justify-center bg-gray-50">
+                <div className="bg-white p-8 rounded-lg shadow-md text-center">
+                    <p className="text-red-600 text-lg mb-2">Error</p>
+                    <p className="text-gray-600">{error}</p>
+                </div>
+            </div>
+        );
+    }
 
     return (
-        <div>
+        <div className="min-h-screen bg-gray-50">
             <Header />
-            <div className="carPages">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
                 {cars.length === 0 ? (
                     <GetPP />
                 ) : (
-                    <>
-                        <h2>Cars for Brand: {brandName || "Loading brand name..."}</h2>
-                        <ul className="flex flex-wrap">
+                    <div>
+                        <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
+                            {brandName || "Loading brand name..."}
+                        </h2>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                             {cars.map((car) => (
-                                <li key={car.id} className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-2">
-                                    <img
-                                        src={car.imageUrl || "path/to/default-image.jpg"}
-                                        alt={car.makeId}
-                                        className="w-full h-auto object-cover"
-                                    />
-                                    {/*<h5>{brandName}</h5>*/}
-                                    <h5>{car.makeId}</h5>
-                                    <h5>{car.id}</h5>
-                                    <h5>Year : {car.year}</h5>
-                                    <hr />
-                                </li>
+                                <div
+                                    key={car.id}
+                                    className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
+                                >
+                                    <div className="aspect-w-16 aspect-h-9">
+                                        <img
+                                            src={car.imageUrl || "https://via.placeholder.com/400x300?text=No+Image"}
+                                            alt={`${brandName} ${car.id}`}
+                                            className="w-full h-48 object-cover"
+                                            onError={(e) => {
+                                                e.target.src = "https://via.placeholder.com/400x300?text=No+Image";
+                                            }}
+                                        />
+                                    </div>
+                                    <div className="p-4">
+                                        <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                                            {brandName} - {car.id}
+                                        </h3>
+                                        <div className="space-y-2">
+                                            <p className="text-gray-600">
+                                                <span className="font-medium">Year:</span> {car.year}
+                                            </p>
+                                            {car.price && (
+                                                <p className="text-gray-600">
+                                                    <span className="font-medium">Price:</span> ${car.price.toLocaleString()}
+                                                </p>
+                                            )}
+                                            {car.mileage && (
+                                                <p className="text-gray-600">
+                                                    <span className="font-medium">Mileage:</span> {car.mileage.toLocaleString()} miles
+                                                </p>
+                                            )}
+                                        </div>
+                                    </div>
+                                </div>
                             ))}
-                        </ul>
-                    </>
+                        </div>
+                    </div>
                 )}
             </div>
-            <Footer />
+            {/*<Footer />*/}
+            <Footer1 />
         </div>
     );
 };

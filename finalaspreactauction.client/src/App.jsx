@@ -1,32 +1,30 @@
-import CarList from "./Components/Fetch/CarList"
+﻿import CarList from "./Components/Fetch/CarList"
 import Header from "./Components/Page/Header"
-import Footer from "./Components/Page/Footer"
+import Footer1 from "./Components/Example/Example11"
 import ModelList from "./Components/Fetch/ModelList"
-import Example from "./Components/Example/Example"
 import CarouselForDetails from "./Components/Example/carousel"
 import Auction from "./Components/Auction/AuctionHandle"
 import ExitAnimation from "./Components/Example/Animation"
 import ChatBotWithAI from "./Components/Example/ChatGPTComponent"
 import Carousel from "./Components/Example/CarouselUI"
 import ForAdmin from "./Components/Example/ForAdmin"
-import Button from "./Components/Example/Button"
 
 function App() {
     return (
-        <div>
+        <div className="totalContainer">
             <Header />
             <CarList />
             <Carousel />
             <CarouselForDetails />
-            <Footer />
             <ExitAnimation />
             <ModelList />
             <ChatBotWithAI />
             <Auction />
             <ForAdmin />
             {/*<Example />*/}
-            {/*<App1 />*/}
-            {/*<App111/>*/}
+            {/*<CarList22 />*/}
+            {/*<Foos2 />*/}
+            <Footer1/>
         </div>
     )
 }

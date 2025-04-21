@@ -3,7 +3,13 @@ import { useParams } from 'react-router-dom';
 import { Col, Divider, Row, message } from 'antd';
 import axios from 'axios';
 import BookmarkToggle from '../Example/Bookmark';
-
+const cardStyle = {
+  background: '#0092ff',
+  padding: '8px 2px',
+  borderRadius: '5px',
+  color: 'white',
+  textAlign: 'center',
+};
 const style = { background: '#0092ff', padding: '8px 2px', borderRadius: "5px" };
 
 const GetCarById = () => {
@@ -68,12 +74,19 @@ const GetCarById = () => {
                     </div>
 
                 </Col>
-                <Col className="gutter-row" span={7}>
-                    <div style={style}>
-                        <span className="px-4">BID INFORMATION</span>
+                {/*<Col className="gutter-row" span={7}>*/}
+                {/*    <div style={style}>*/}
+                {/*        <span className="px-4">BID INFORMATION</span>*/}
+                {/*        <BookmarkToggle />*/}
+                {/*    </div>*/}
+                {/*</Col>*/}
+                <Col xs={24} md={7}>
+                    <div style={cardStyle}>
+                        <h4 className="mb-2">BID INFORMATION</h4>
                         <BookmarkToggle />
                     </div>
                 </Col>
+
             </Row>
         </div>
     );
