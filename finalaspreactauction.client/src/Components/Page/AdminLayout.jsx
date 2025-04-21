@@ -11,7 +11,7 @@ function AdminLayout() {
         <div>
             <Navbar expand="lg" style={{ backgroundColor: "#536878" }}>
                 <Container>
-                    <Navbar.Brand as={Link} to="/admin">Admin-Auction</Navbar.Brand>
+                    <Navbar.Brand as={Link} to="/admin" id="meauto">Admin-Auction</Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="me-auto">
